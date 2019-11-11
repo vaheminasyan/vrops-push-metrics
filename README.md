@@ -26,8 +26,9 @@ How to run:
 
 Download all the files to the same location. Program has three parts.
 
-Part 1: Setting up the environment:
+# Part 1: Setting up the environment:
 
+## Step 1 (Not needed if you have your own script which is connecting to vcenters and pushing data.)
 For first time run Set-VCdetails.ps1 using powershell. You can simply open powershell windows and run the script with 
 C:\ .\Set-VCdetails.ps1
 
@@ -43,6 +44,7 @@ Once these information are provided, it will create vcdetails.txt (contains vCen
 
 Next run set-env.py file. You can run it like following:
 
+## Step 2
 with #python set-env.py, this will ask for the following inputs:
 
 Adapter Kind:
@@ -58,13 +60,13 @@ vROps password:
 Once all the above information is provided, the script generates env.json in the same location. The provided password is saved in encrypted format.
 
 
-Part 2: Getting the data from vCenter server:
+# Part 2: Getting the data from vCenter server:
 
-
+## Step 1 (Again, not needed if you have your own script pulling data vrom vCenter/vCenters)
 Run the "Get-VMDetails.ps1" file with powershell cmdline. This will get values from vcdetails.txt and passwd.txt file and generate data.json file in the same location. This data.json will have the desired output values.
 
 
-Part 3: Pushing the data to vROps server:
+# Part 3: Pushing the data to vROps server:
 
 
 Next run data-push.py from cmdline with #python data-push.py. This will gather required information from env.jon, data.json and push data to vROps server
